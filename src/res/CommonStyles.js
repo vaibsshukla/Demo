@@ -3,6 +3,10 @@
 import colors from './Colors.js'
 
 export default {
+
+    container : {
+        flex: 1,
+    },
     shadow: {
         shadowColor: colors.shadowColor,
         shadowOffset: {

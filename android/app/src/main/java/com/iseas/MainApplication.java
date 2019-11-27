@@ -2,6 +2,8 @@ package com.iseas;
 
 import android.app.Application;
 import android.content.Context;
+import android.view.View;
+
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.reactnativecommunity.netinfo.NetInfoPackage;
@@ -10,6 +12,8 @@ import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -43,11 +47,25 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
+      Fabric.with(this, new Crashlytics());
     SoLoader.init(this, /* native exopackage */ false);
     initializeFlipper(this); // Remove this line if you don't want Flipper enabled
+      this.logUser();
   }
+    private void logUser() {
 
-  /**
+        Crashlytics.setUserIdentifier("12345");
+        Crashlytics.setUserEmail("user@fabric.io");
+        Crashlytics.setUserName("Test User");
+//        this.forceCrash();
+    }
+
+    public void forceCrash() {
+        throw new RuntimeException("This is a crash");
+    }
+
+
+    /**
    * Loads Flipper in React Native templates.
    *
    * @param context

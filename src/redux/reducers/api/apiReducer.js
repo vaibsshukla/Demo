@@ -1,7 +1,7 @@
 import {
     API_CALL_FAILURE, TEST_API_CALL_SUCCESS
 } from '../../actions';
-
+import {log} from '../../../utility/Utility'
 const initialState = {
     testResponse: ''
 }
@@ -9,12 +9,12 @@ const initialState = {
 export function apiReducer(state = initialState, action) {
     switch (action.type) {
         case API_CALL_FAILURE:
-            console.log("action", action);
+            log("action", action);
             return {
                 ...state
             }
         case TEST_API_CALL_SUCCESS:
-            console.log("action", action);
+            log("action Api Failure", action);
             return {
                 ...state,
                 testResponse: action.data

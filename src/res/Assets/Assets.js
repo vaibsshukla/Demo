@@ -7,5 +7,8 @@ export default {
     },
     icons: {
 
-    }
+    },
+    lottie:{
+        loader : require('../Assets/Lottie/LoaderAnimation.json')
+    },
 }

@@ -18,6 +18,7 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* iseasTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* iseasTests.m */; };
 		4AE03371DF4A357162D697E5 /* libPods-iseas.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A373D59BCCE4DFD0810D6B6B /* libPods-iseas.a */; };
+		80003CA1238E7D3800938056 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80003CA0238E7D3800938056 /* GoogleService-Info.plist */; };
 		8BB8A619B005A7F44F5C7F73 /* libPods-iseas-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B29CE1A1BD9285CE54C77F7D /* libPods-iseas-tvOS.a */; };
 		AB000B298B364414FF842B35 /* libPods-iseas-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2EB22C15C9F0CCF51F097E /* libPods-iseas-tvOSTests.a */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		6B7D5969307CC13E729AC9F5 /* Pods-iseas-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iseas-tvOS.release.xcconfig"; path = "Target Support Files/Pods-iseas-tvOS/Pods-iseas-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		7BF84F01863B9326BFC96EC9 /* Pods-iseas-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iseas-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-iseas-tvOS/Pods-iseas-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		7DE19825DB03595E56CA2DB3 /* Pods-iseas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iseas.debug.xcconfig"; path = "Target Support Files/Pods-iseas/Pods-iseas.debug.xcconfig"; sourceTree = "<group>"; };
+		80003CA0238E7D3800938056 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A373D59BCCE4DFD0810D6B6B /* libPods-iseas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iseas.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9161D6481D7D67010F6652D /* Pods-iseas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iseas.release.xcconfig"; path = "Target Support Files/Pods-iseas/Pods-iseas.release.xcconfig"; sourceTree = "<group>"; };
 		ABB877B8501F9F997F1C6465 /* Pods-iseasTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iseasTests.debug.xcconfig"; path = "Target Support Files/Pods-iseasTests/Pods-iseasTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		13B07FAE1A68108700A75B9A /* iseas */ = {
 			isa = PBXGroup;
 			children = (
+				80003CA0238E7D3800938056 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -161,7 +164,6 @@
 				ABB877B8501F9F997F1C6465 /* Pods-iseasTests.debug.xcconfig */,
 				33B15C7C61D928636056DC90 /* Pods-iseasTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -308,6 +310,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -338,6 +341,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				80003CA1238E7D3800938056 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,7 +13,10 @@ import {
 import Navigator from './navigator/Navigator';
 import { connect } from "react-redux";
 import AsyncStorageValues from '../constants/AsyncStorageValues';
-import NetworkManager from '../Utility/NetworkManager';
+import NetworkManager from '../utility/NetworkManager';
+import {log} from '../utility/Utility';
+
+
 import NoNetwork from '../components/NoNetwork';
 // import {CREATE_USER_DATA_IN_SESSION } from '../redux/actions'
 
@@ -31,8 +34,7 @@ class Iseas extends Component {
 
     constructor(props) {
         super(props);
-        this.setDefaultFontFamily({ fontFamily: Platform.OS == 'ios' ? 'Roboto' : 'Roboto-Regular' })
-        Utility.sharedInstance.HOC = this;
+        // this.setDefaultFontFamily({ fontFamily: Platform.OS == 'ios' ? 'Roboto' : 'Roboto-Regular' })
         // YellowBox.ignoreWarnings(['Require cycle:'])
     }
 
@@ -44,14 +46,14 @@ class Iseas extends Component {
             {!this.onRetryClicked && this.renderOverlay()}
             {this.onRetryClicked && this.state.isOverlayVisible &&
                 <NoNetwork onRetryClicked={() => {
-                    Utility.log('Retry clicked');
+                    log('Retry clicked');
                     if (NetworkManager.networkManagerInstance.isInternetConnected) {
                         this.setState({ isOverlayVisible: false });
                         this.onRetryClicked();
                     }
                     else {
-                        Utility.log('Please check your internet connection');
-                        Utility.sharedInstance.showToast('Please check your internet connection');
+                        log('Please check your internet connection');
+                        sharedInstance.showToast('Please check your internet connection');
                     }
                 }} />
             }
@@ -62,8 +64,8 @@ class Iseas extends Component {
         //
         //     const currentScreen = this.getActiveRouteName(currentState);
         //     const prevScreen = this.getActiveRouteName(prevState);
-        //     console.log("prevScreen "+prevScreen)
-        //     console.log("currentScreen "+currentScreen)
+        //     log("prevScreen "+prevScreen)
+        //     log("currentScreen "+currentScreen)
         //     if (prevScreen !== currentScreen) {
         //         firebase.analytics().setCurrentScreen(currentScreen);
         //     }
@@ -71,7 +73,7 @@ class Iseas extends Component {
         // />);
         // return (
         //     <InteractionProvider timeout={INACTIVITY_TIMEOUT}
-        //                          onActive={() => console.log('\n\t\t[InteractionProvider] User no longer idle')}
+        //                          onActive={() => log('\n\t\t[InteractionProvider] User no longer idle')}
         //                          onInactive={this._userInactivityHandler}>
         //         <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
         //             <Navigator
@@ -80,8 +82,8 @@ class Iseas extends Component {
         //
         //                     const currentScreen = this.getActiveRouteName(currentState);
         //                     const prevScreen = this.getActiveRouteName(prevState);
-        //                     console.log("prevScreen "+prevScreen)
-        //                     console.log("currentScreen "+currentScreen)
+        //                     log("prevScreen "+prevScreen)
+        //                     log("currentScreen "+currentScreen)
         //                     if (prevScreen !== currentScreen) {
         //                         firebase.analytics().setCurrentScreen(currentScreen);
         //                     }
@@ -126,7 +128,7 @@ class Iseas extends Component {
         Alert.alert(
           title, body,
           [
-              { text: 'OK', onPress: () => console.log('OK Pressed') },
+              { text: 'OK', onPress: () => log('OK Pressed') },
           ],
           { cancelable: false },
         );
@@ -165,7 +167,7 @@ class Iseas extends Component {
     }
 
     onBack = () => {
-        // console.log('<==================== Back Pressed HOC ===========================>');
+        // log('<==================== Back Pressed HOC ===========================>');
         // if (this.state.confirmationPopup.visible) {
         //     this.setState({ confirmationPopup: { visible: false, title: '', description: '' } });
         // }
@@ -215,7 +217,7 @@ class Iseas extends Component {
     //         })
     //         else this.setState({confirmationPopup: {visible: false, title: '', description: ''}})
     //     } catch (error) {
-    //         console.warn('[Fevo -> showConfirmationPopup()] ', error)
+    //         warn('[Fevo -> showConfirmationPopup()] ', error)
     //     }
     // }
     //
@@ -246,49 +248,49 @@ class Iseas extends Component {
             }
 
 
-        };
+    //     };
 
-        if (isOverlayVisible) {
-            return (<View />);
-            // <View style={{ position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, backgroundColor: 'rgba(0, 0, 0, 0.5)', justifyContent: 'center', alignItems: 'center' }}>
-            //     <View style={{ backgroundColor: 'white', width: 100, height: 80, justifyContent: 'center', alignItems: 'center' }}>
-            {/*<Popup*/
-            }
-            {/*show={this.state.isOverlayVisible}*/
-            }
-            {/*title={title}*/
-            }
-            {/*description={desc}*/
-            }
-            {/*yes={yesButtonText}*/
-            }
-            {/*no={noButtonText}*/
-            }
-            {/*onBlanckClick={onBlanckClick}*/
-            }
-            {/*noOnClick={noOnClick}*/
-            }
-            {/*yesOnClick={yesOnClick}*/
-            }
-            {/*yesButtonStyle={[t.button, t.shadow]}*/
-            }
-            {/*/>*/
-            }
-            //     </View>
-            // </View>
-            // );
-        }
-        return null;
-    }
+    //     if (isOverlayVisible) {
+    //         return (<View />);
+    //         // <View style={{ position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, backgroundColor: 'rgba(0, 0, 0, 0.5)', justifyContent: 'center', alignItems: 'center' }}>
+    //         //     <View style={{ backgroundColor: 'white', width: 100, height: 80, justifyContent: 'center', alignItems: 'center' }}>
+    //         {/*<Popup*/
+    //         }
+    //         {/*show={this.state.isOverlayVisible}*/
+    //         }
+    //         {/*title={title}*/
+    //         }
+    //         {/*description={desc}*/
+    //         }
+    //         {/*yes={yesButtonText}*/
+    //         }
+    //         {/*no={noButtonText}*/
+    //         }
+    //         {/*onBlanckClick={onBlanckClick}*/
+    //         }
+    //         {/*noOnClick={noOnClick}*/
+    //         }
+    //         {/*yesOnClick={yesOnClick}*/
+    //         }
+    //         {/*yesButtonStyle={[t.button, t.shadow]}*/
+    //         }
+    //         {/*/>*/
+    //         }
+    //         //     </View>
+    //         // </View>
+    //         // );
+    //     }
+    //     return null;
+    // }
 
     showOverlay =(parameter = {})=> {
-        // Utility.log('showOverlay' + JSON.stringify(parameter));
+        // log('showOverlay' + JSON.stringify(parameter));
 
         let title, overlayDescription, yesButtonText, noButtonText;
 
         this.onRetryClicked = parameter.onRetryClicked;
         if (this.onRetryClicked) {
-            // Utility.log('onRetryClicked' + JSON.stringify(parameter));
+            // log('onRetryClicked' + JSON.stringify(parameter));
         }
 
         this.overlayType = parameter.type;
@@ -311,14 +313,14 @@ class Iseas extends Component {
                 yesButtonText = s.lblYes;
                 break;
             default:
-                Utility.log('showOverlay default');
+                log('showOverlay default');
                 title = 'ISEAS';
                 overlayDescription = ' ';
                 yesButtonText = s.lblYes;
                 noButtonText = s.lblNo;
                 break;
         }
-        Utility.log('showOverlay' + parameter);
+        log('showOverlay' + parameter);
         this.setState({
             isOverlayVisible: true,
             title: title,
@@ -342,7 +344,7 @@ class Iseas extends Component {
     //         if(isJailBroken)
     //          this.showOverlay({ type: 'jailBreak' })
     //     } catch (e) {
-    //         console.log("[Error][Fevo -> checkForJailBreak()] " + e.toLocaleString())
+    //         log("[Error][Fevo -> checkForJailBreak()] " + e.toLocaleString())
     //
     //     }
     // }
@@ -355,7 +357,7 @@ class Iseas extends Component {
 
     //
     // checkPushNotificationPermissions() {
-    //     this.onTokenRefreshListener = firebase.messaging().onTokenRefresh(fcmToken => console.log("[FCM][Token]\n" + fcmToken))
+    //     this.onTokenRefreshListener = firebase.messaging().onTokenRefresh(fcmToken => log("[FCM][Token]\n" + fcmToken))
     //
     //     const channel = new firebase.notifications.Android.Channel('fevo-channel', 'Fevo Channel', firebase.notifications.Android.Importance.Max).setDescription('Fevo Channel')    // Create the channel
     //     firebase.notifications().android.createChannel(channel)
@@ -375,18 +377,18 @@ class Iseas extends Component {
     _handleAppStateChange = async (nextAppState) => {
         if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
             if (__DEV__) {
-                console.log('[AppState] App Enterted Foreground');
+                log('[AppState] App Enterted Foreground');
             }
             //     let userAuth = Utility.sharedInstance.getUserAuth()
             //     if (userAuth && userAuth != '' && userAuth.auth_token) {
-            //         console.log("UserAuth:\n" + JSON.stringify(userAuth))
+            //         log("UserAuth:\n" + JSON.stringify(userAuth))
             //         let response = await NetworkManager.sharedInstance.fetchRequest(Constants.api.backgroundForegroundCheck, true, 'GET', {}, userAuth.auth_token)
             //         if (!response.success) {
             //             this.showOverlay({type: 'sessionExpired'})
             //             Utility.sharedInstance.logout()
             //         }
             //     } else {
-            //         if (__DEV__) console.log("[AppState] User Not Logged In")
+            //         if (__DEV__) log("[AppState] User Not Logged In")
             //     }
             //
         }
@@ -397,26 +399,26 @@ class Iseas extends Component {
     // async logApplicationDirectory() {
     //     if (Platform.OS == 'ios' && __DEV__) {
     //         let applicationDirectory = await NativeModules.NativeOperation.applicationDocumentsDirectory()
-    //         console.log('\n\n\n\t--------------------------------------------------------------\n' + `\n\tApplication Directory:\n\t${applicationDirectory}\n` + '\n\t--------------------------------------------------------------\n\n\n')
+    //         log('\n\n\n\t--------------------------------------------------------------\n' + `\n\tApplication Directory:\n\t${applicationDirectory}\n` + '\n\t--------------------------------------------------------------\n\n\n')
     //     }
     // }
     //
 
-    setDefaultFontFamily = (parameter = {}) => {
-        // Override font-family style property throughout app.
-        [Text, TextInput].map(Component => {
-            let oldRender = Component.render
-            Component.render = function (...args) {
-                let origin = oldRender.call(this, ...args);
-                if (Platform.OS == 'android' && origin.props.dontOverideFont) {
-                    return React.cloneElement(origin, { style: [origin.props.style] })
-                } else {
-                    return React.cloneElement(origin, { style: [origin.props.style, { fontFamily: parameter.fontFamily }] })
-                }
+    // setDefaultFontFamily = (parameter = {}) => {
+    //     // Override font-family style property throughout app.
+    //     [Text, TextInput].map(Component => {
+    //         let oldRender = Component.render
+    //         Component.render = function (...args) {
+    //             let origin = oldRender.call(this, ...args);
+    //             if (Platform.OS == 'android' && origin.props.dontOverideFont) {
+    //                 return React.cloneElement(origin, { style: [origin.props.style] })
+    //             } else {
+    //                 return React.cloneElement(origin, { style: [origin.props.style, { fontFamily: parameter.fontFamily }] })
+    //             }
 
-            }
-        })
-    }
+    //         }
+    //     })
+    // }
 
 }
 
@@ -424,11 +426,11 @@ class Iseas extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getProductFromAsyncHandler: (data) => dispatch({ type: GET_PRODUCT_FROM_ASYNCSTORAGE, data }),
-        setStoredValuesDispatcher: (data) => dispatch({ type: CREATE_USER_DATA_IN_SESSION, data }),
+        // getProductFromAsyncHandler: (data) => dispatch({ type: GET_PRODUCT_FROM_ASYNCSTORAGE, data }),
+        // setStoredValuesDispatcher: (data) => dispatch({ type: CREATE_USER_DATA_IN_SESSION, data }),
     };
 };
 
 
-export default connect(null, mapDispatchToProps)(Kbz)
+export default connect(null, mapDispatchToProps)(Iseas)
 

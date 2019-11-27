@@ -1,6 +1,8 @@
 import { takeEvery, call, put } from "redux-saga/effects";
 import { API_CALL, API_CALL_FAILURE } from '../../actions'
-import NetworkManager from '../../../Utility/NetworkManager'
+import NetworkManager from '../../../utility/NetworkManager'
+import {log} from '../../../utility/Utility'
+
 
 export const apiWatcherSaga = [
     takeEvery(API_CALL, apiWorkerSaga),
@@ -9,11 +11,11 @@ export const apiWatcherSaga = [
 function* apiWorkerSaga(action) {
     try {
         const response = yield call(apiCall, action.data.api, action.data.requestType, action.data.reqObject);
-        console.log('res: ', JSON.stringify(response))
+        log('res: ', JSON.stringify(response))
         const data = response;
         yield put({ type: action.data.type, data });
     } catch (error) {
-        console.log('error', JSON.stringify(error))
+        log('error', JSON.stringify(error))
         yield put({ type: API_CALL_FAILURE, error });
     }
 }
